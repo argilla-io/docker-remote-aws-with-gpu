@@ -10,7 +10,7 @@ if [ -z "$AWS_PATH" ]; then
         exit 1
 fi
 
-if [ -z "$DOCKER_MACHINE_PAH" ]; then
+if [ -z "$DOCKER_MACHINE_PATH" ]; then
         echo "docker-machine  not found!!. "
         echo "Please install docker"
         exit 1
