@@ -5,8 +5,11 @@ VOLUME_SIZE=$2
 INSTANCE_TYPE='p2.xlarge'
 AWS_AMI='ami-6c101b0a'
 
+aws_region=$(aws configure get region)
+
 docker-machine create --driver amazonec2 \
-	--amazonec2-ami AWS_AMI \
+	--amazonec2-region $aws_region \
+	--amazonec2-ami $AWS_AMI \
 	--amazonec2-instance-type $INSTANCE_TYPE \
 	--amazonec2-root-size $VOLUME_SIZE \
 $MACHINE_NAME

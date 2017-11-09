@@ -2,6 +2,7 @@
 
 DOCKER_MACHINE_PATH=$(which docker-machine)
 AWS_PATH=$(which aws)
+NVIDIA_DOCKER_PATH=$(which nvidia-docker)
 
 if [ -z "$AWS_PATH" ]; then
         echo "aws client not found!!. "
@@ -16,6 +17,7 @@ if [ -z "$DOCKER_MACHINE_PATH" ]; then
         exit 1
 fi
 
-BASEDIR=`pwd`
-
-ln -s $BASEDIR/nvidia-docker /usr/local/bin/nvidia-docker && exit 0
+if [ -z "$NVIDIA_DOCKER_PATH" ]; then
+		BASEDIR=`pwd`
+		ln -s $BASEDIR/nvidia-docker /usr/local/bin/nvidia-docker && exit 0	
+fi
