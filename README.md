@@ -18,3 +18,11 @@ run
 
 run
 >bash create-instance.sh [instance_name] [volume_size]
+
+then load environment for created instance:
+>source env.sh [instance_name]
+
+# Remove an instante
+
+run
+>bash remove-instance.sh [instance_name]
